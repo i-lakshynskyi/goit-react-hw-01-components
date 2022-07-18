@@ -13,9 +13,9 @@ function FriendListItem({ status, name, avatar }) {
 }
 
 FriendListItem.prototype = {
-  status: PropTypes.bool,
-  name: PropTypes.string,
-  avatar: PropTypes.string
-}
+  status: PropTypes.bool.isRequired,
+  name: PropTypes.string.isRequired,
+  avatar: PropTypes.string.isRequired,
+};
 
 export default FriendListItem;

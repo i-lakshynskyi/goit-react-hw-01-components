@@ -2,8 +2,8 @@ import s from "./profile.module.scss";
 import PropTypes from 'prop-types';
 
 
-function Profile({username, tag, stats, location, avatar}) {
-  const {followers, views, likes} = stats;
+function Profile({username, tag, stats,  location, avatar}) {
+  const {followers = 0, views = 0, likes = 0} = stats;
   return (
     <div className={s.profile}>
       <div className={s.description}>
@@ -36,11 +36,15 @@ function Profile({username, tag, stats, location, avatar}) {
 }
 
 Profile.prototype = {
-  username: PropTypes.string,
-  tag: PropTypes.string,
-  avatar: PropTypes.string,
-  location: PropTypes.string,
-  stats: PropTypes.objectOf(PropTypes.number)
+  username: PropTypes.string.isRequired,
+  tag: PropTypes.string.isRequired,
+  avatar: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
+  stats: PropTypes.shape({
+    followers: PropTypes.number.isRequired,
+    views: PropTypes.number.isRequired,
+    likes: PropTypes.number.isRequired,
+  }).isRequired
 }
 
 export default Profile;

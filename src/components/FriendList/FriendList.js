@@ -4,8 +4,15 @@ import PropTypes from 'prop-types';
 import s from './friend-list.module.scss';
 import FriendListItem from './FriendListItem';
 
-
-function FriendList({ friends }) {
+const defaultProps = {
+  friends: [{
+    avatar: "",
+    id: 1,
+    name: "Bot",
+    isOnline: false,
+  }]
+}
+function FriendList({ friends = defaultProps.friends }) {
   return (
     <ul className={s.friendList}>
       {friends.map(fr =>
@@ -19,7 +26,10 @@ function FriendList({ friends }) {
 
 FriendList.propTypes = {
   friends: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired
+    id: PropTypes.number.isRequired,
+    avatar: PropTypes.string,
+    name: PropTypes.string,
+    isOnline: PropTypes.bool,
   }))
 }
 

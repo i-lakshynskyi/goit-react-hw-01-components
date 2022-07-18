@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import s from './transaction-history.module.scss';
 
-function TransactionHistory({ transactions }) {
+function TransactionHistory({ items }) {
   return (
     <table className={s.transactionHistory}>
       <thead>
@@ -14,7 +14,7 @@ function TransactionHistory({ transactions }) {
 
       <tbody>
       {
-        transactions.map(el =>
+        items.map(el =>
           <tr key={el.id}>
             <td>{el.type.charAt(0).toUpperCase() + el.type.slice(1)}</td>
             <td>{el.amount}</td>
@@ -29,10 +29,10 @@ function TransactionHistory({ transactions }) {
 
 TransactionHistory.prototype = {
   transactions: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string,
-    type: PropTypes.string,
-    amount: PropTypes.string,
-    currency: PropTypes.string,
+    id: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    amount: PropTypes.string.isRequired,
+    currency: PropTypes.string.isRequired,
   })),
 };
 

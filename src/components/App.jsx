@@ -23,7 +23,7 @@ export const App = () => {
       <LineSeparator/>
       <FriendList friends={friends}/>
       <LineSeparator/>
-      <TransactionHistory transactions={transactions}/>
+      <TransactionHistory items={transactions}/>
     </div>
   );
 };
