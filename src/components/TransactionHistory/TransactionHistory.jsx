@@ -1,6 +1,10 @@
 import PropTypes from 'prop-types';
 import s from './transaction-history.module.scss';
 
+TransactionHistory.defaultProps = {
+  items: [],
+}
+
 function TransactionHistory({ items }) {
   return (
     <table className={s.transactionHistory}>

@@ -1,16 +1,12 @@
 import s from './statistics.module.scss';
 import PropTypes from 'prop-types';
 
-const defaultProps = {
-  title: 'Upload stats',
-  stats: [{
-    id: 'id',
-    label: 'label',
-    percentage: 0,
-  }],
-};
+Statistics.defaultProps = {
+  stats: [],
+}
 
-function Statistics({ title, stats = defaultProps.stats }) {
+
+function Statistics({ title, stats = stats }) {
 
   return (
     <section className={s.statistics}>

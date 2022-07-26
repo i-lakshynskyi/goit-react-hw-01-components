@@ -4,15 +4,10 @@ import PropTypes from 'prop-types';
 import s from './friend-list.module.scss';
 import FriendListItem from './FriendListItem';
 
-const defaultProps = {
-  friends: [{
-    avatar: "",
-    id: 1,
-    name: "Bot",
-    isOnline: false,
-  }]
+FriendList.defaultProps = {
+  friends: []
 }
-function FriendList({ friends = defaultProps.friends }) {
+function FriendList({ friends = friends }) {
   return (
     <ul className={s.friendList}>
       {friends.map(fr =>
